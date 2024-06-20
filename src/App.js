@@ -4,7 +4,7 @@ import useNotification from './hooks/useNotification';
 function App() {
   const [NotificationComponent, triggerNotification] = useNotification('top-left');
 
-  const showNotification = (type, position) => {
+  const showNotification = (type) => {
     triggerNotification({
       type,
       message: "File send successfully",
