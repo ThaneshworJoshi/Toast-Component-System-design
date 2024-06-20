@@ -1,23 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import useNotification from './hooks/useNotification';
 
 function App() {
+  const [NotificationComponent, triggerNotification] = useNotification('top-left');
+
+  const showNotification = (type, position) => {
+    triggerNotification({
+      type,
+      message: "File send successfully",
+      duration: 3000,
+      // animation: 'fade',
+      animation: 'zoom'
+    })
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Notification Component System Design</h1>
+
+      <button onClick={() => showNotification('success')}>Success !</button>
+      <button onClick={() => showNotification('error')}>Error !</button>
+      {NotificationComponent}
     </div>
   );
 }
