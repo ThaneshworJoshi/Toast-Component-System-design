@@ -6,10 +6,8 @@ const transition = {
     zoom: 'zoom'
 }
 
-const useNotification = (position = 'top-right', transition = 'slide') => {
+const useNotification = (position = 'top-right') => {
     const [notifications, setNotifications] = useState([]);
-    const [animationClass, setAnimationClass] = useState('');
-
 
     const triggerNotification = useCallback((notificationProps) => {
 
@@ -17,10 +15,7 @@ const useNotification = (position = 'top-right', transition = 'slide') => {
         const enterClass = `notification-enter-${notificationProps.animation || 'fade'}`;
         const exitClass = `notification-exit-${notificationProps.animation || 'fade'}`;
 
-        setAnimationClass(enterClass)
-
         const timer = setTimeout(() => {
-            setAnimationClass(exitClass)
             setTimeout(() => {
                 closeNotification(id, exitClass)
             }, 500)

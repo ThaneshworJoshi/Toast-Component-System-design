@@ -9,17 +9,21 @@ function App() {
       type,
       message: "File send successfully",
       duration: 3000,
-      // animation: 'fade',
-      animation: 'zoom'
+      animation: 'fade',
+      // animation: 'zoom'
     })
   }
 
   return (
-    <div>
-      <h1>Notification Component System Design</h1>
+    <div className='container'>
+      <h1 className='title'>Notification Component System Design</h1>
 
-      <button onClick={() => showNotification('success')}>Success !</button>
-      <button onClick={() => showNotification('error')}>Error !</button>
+    <div className='btn-wrapper'>
+      <button className='success-btn btn' onClick={() => showNotification('success')}>Success !</button>
+      <button className='error-btn btn' onClick={() => showNotification('error')}>Error !</button>
+      <button className='info-btn btn' onClick={() => showNotification('info')}>Info !</button>
+      <button className='warning-btn btn' onClick={() => showNotification('warning')}>Warning !</button>
+    </div>
       {NotificationComponent}
     </div>
   );
